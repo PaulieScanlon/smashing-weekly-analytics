@@ -1,0 +1,30 @@
+name: Weekly Analytics Report
+
+on:
+  schedule:
+    - cron: '0 10 * * 5' # Runs every Friday at 10 AM UTC
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  analytics-report:
+    runs-on: ubuntu-latest
+
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+      GOOGLE_APPLICATION_CREDENTIALS_BASE64: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the JavaScript script
+        run: node src/services/weekly-analytics.js
