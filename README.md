@@ -1,6 +1,6 @@
 # Google Analytics to Slack Notification using GitHub Actions
 
-The steps to create the required Google Project, Slack Webhook and GitHub Action are detailed in the following article on Smashing Magazine: [TBD](https://www.smashingmagazine.com/)
+The steps to create the required Google Project, Slack Webhook and GitHub Action are detailed in the following article on Smashing Magazine: [How To Create A Weekly Google Analytics Report That Posts To Slack](https://www.smashingmagazine.com/2024/09/how-create-weekly-google-analytics-report-posts-slack/)
 
 ## Getting started
 
